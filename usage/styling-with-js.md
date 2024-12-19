@@ -126,10 +126,10 @@ const doc = new Document({
                 next: "Normal",
                 quickFormat: true,
                 run: {
-                    size: 26
+                    size: 26,
                     bold: true,
                     color: "999999",
-                    {
+                    underline: {
                         type: UnderlineType.DOUBLE,
                         color: "FF0000",
                     },
@@ -146,7 +146,7 @@ const doc = new Document({
 });
 ```
 
-**Note**: If you are using the `.headingX` or `.title` methods of paragraphs, you must make sure to define `HeadingX` or `Title` styles for these. Otherwise they'll show up unstyled :(. If you are using the `.bullet` or `.setNumbering` methods, you need to define a `ListParagraph` style or the numbers may not show up.
+**Note**: If you are using the `.headingX` or `.title` methods of paragraphs, you must make sure to define `HeadingX` or `Title` styles for these. Otherwise they'll show up un-styled :(. If you are using the `.bullet` or `.setNumbering` methods, you need to define a `ListParagraph` style or the numbers may not show up.
 
 ### Document defaults
 
@@ -199,7 +199,7 @@ For these properties, the rules state the following conflict resolution in case 
 
 ## Examples
 
-### Declaritive styles
+### Declarative styles
 
 Importing Images from file system path
 

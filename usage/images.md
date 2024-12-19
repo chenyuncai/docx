@@ -6,6 +6,7 @@ To create a `floating` image on top of text:
 
 ```ts
 const image = new ImageRun({
+    type: 'gif',
     data: fs.readFileSync("./demo/images/pizza.gif"),
     transformation: {
         width: 200,
@@ -26,6 +27,7 @@ By default with no arguments, its an `inline` image:
 
 ```ts
 const image = new ImageRun({
+    type: 'gif',
     data: fs.readFileSync("./demo/images/pizza.gif"),
     transformation: {
         width: 100,
@@ -59,6 +61,7 @@ const doc = new Document({
             new Paragraph({
                 children: [
                     new ImageRun({
+                        type: [IMAGE_TYPE],
                         data: [IMAGE_BUFFER],
                         transformation: {
                             width: [IMAGE_SIZE],
@@ -97,6 +100,7 @@ To change the position the image to be on top of the text, simply add the `float
 
 ```ts
 const image = new ImageRun({
+    type: 'png',
     data: buffer,
     transformation: {
         width: 903,
@@ -115,6 +119,7 @@ const image = new ImageRun({
 
 ```ts
 const image = new ImageRun({
+    type: 'png',
     data: buffer,
     transformation: {
         width: 903,
@@ -180,6 +185,7 @@ For example:
 
 ```ts
 const image = new ImageRun({
+    type: 'gif',
     data: fs.readFileSync("./demo/images/pizza.gif"),
     transformation: {
         width: 200,
@@ -228,6 +234,7 @@ For example:
 
 ```ts
 const image = new ImageRun({
+    type: 'gif',
     data: fs.readFileSync("./demo/images/pizza.gif"),
     transformation: {
         width: 200,
@@ -252,13 +259,37 @@ const image = new ImageRun({
 });
 ```
 
+## Alternative Text
+
+Specifies common non-visual DrawingML properties. A name, title and description for a picture can be specified.
+
+```ts
+const image = new ImageRun({
+    type: 'gif',
+    data: fs.readFileSync("./demo/images/pizza.gif"),
+    altText: {
+        title: "This is an ultimate title",
+        description: "This is an ultimate image",
+        name: "My Ultimate Image",
+    },
+});
+```
+
+### Options
+
+| Property    | Type     | Notes    | Possible Values                      |
+| ----------- | -------- | -------- | ------------------------------------ |
+| name        | `string` | Required | `Specimen A`                         |
+| title       | `string` | Required | `My awesome title of my image`       |
+| description | `string` | Required | `My awesome description of my image` |
+
 ## Examples
 
 ### Add image to the document
 
 Importing Images from file system path
 
-[Example](https://raw.githubusercontent.com/dolanmiu/docx/master/demo/5-images.ts ':include')
+[Example](https://raw.githubusercontent.com/dolanmiu/docx/master/demo/5-images.ts ":include")
 
 _Source: https://github.com/dolanmiu/docx/blob/master/demo/5-images.ts_
 
@@ -266,7 +297,7 @@ _Source: https://github.com/dolanmiu/docx/blob/master/demo/5-images.ts_
 
 Example showing how to add image to headers and footers
 
-[Example](https://raw.githubusercontent.com/dolanmiu/docx/master/demo/9-images-in-header-and-footer.ts ':include')
+[Example](https://raw.githubusercontent.com/dolanmiu/docx/master/demo/9-images-in-header-and-footer.ts ":include")
 
 _Source: https://github.com/dolanmiu/docx/blob/master/demo/9-images-in-header-and-footer.ts_
 
@@ -274,6 +305,6 @@ _Source: https://github.com/dolanmiu/docx/blob/master/demo/9-images-in-header-an
 
 Example showing how to float images on top of text and optimally give a `margin`
 
-[Example](https://raw.githubusercontent.com/dolanmiu/docx/master/demo/38-text-wrapping.ts ':include')
+[Example](https://raw.githubusercontent.com/dolanmiu/docx/master/demo/38-text-wrapping.ts ":include")
 
 _Source: https://github.com/dolanmiu/docx/blob/master/demo/38-text-wrapping.ts_
